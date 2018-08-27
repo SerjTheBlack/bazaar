@@ -1,0 +1,75 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span><img src="./assets/logo.png"></span>
+    <span class="fill-space"></span>
+    <span><em>Барахолка</em></span>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-grid-list cols="2" rowHeight="2:1">
+  <mat-grid-tile>
+    <mat-card class="user-card">
+      <mat-card-header>
+        <mat-card-title><b>Пользователь</b></mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <span>Имя</span>
+        <br>
+        <span>Кошелек</span>
+        <mat-card-actions>
+          <button mat-raised-button color="primary">Изменить</button>
+        </mat-card-actions>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <mat-card class="item-card">
+      <mat-card-header>
+        <mat-card-title><b>Товар</b></mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <form class="example-form">
+          <table class="example-full-width" cellspacing="0">
+            <th></th>
+            <td>
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="Наименование товара" [(ngModel)]="itemName" type="text" name="itemName" required>
+              </mat-form-field>
+            </td>
+
+            <th></th>
+            <td><mat-form-field class="example-full-width">
+              <input matInput placeholder="Цена" [(ngModel)]="price" type="number" name="price" required>
+            </mat-form-field>
+            </td>
+          </table>
+        </form>
+        <mat-card-actions>
+          <button mat-raised-button color="primary" (click)="addItem(itemName, price)" >Добавить</button>
+        </mat-card-actions>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <mat-card class="market-card">
+      <mat-card-header>
+        <mat-card-title><b>Магазин</b></mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-list>
+          <mat-list-item> <span>Штаны</span><span>100</span><button mat-raised-button color="primary">Купить</button> </mat-list-item>
+          <mat-list-item> <span>Куртка</span><span>200</span><button mat-raised-button color="primary">Купить</button> </mat-list-item>
+        </mat-list>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <mat-card class="inventory-card">
+      <mat-card-header>
+        <mat-card-title><b>Инвентарь</b></mat-card-title>
+      </mat-card-header>
+      <mat-card-content></mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
+
