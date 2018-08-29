@@ -3,10 +3,14 @@ import {NgModule} from '@angular/core';
 import {CustomMaterialModule} from "./core/material.module";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {AppRoutingModule} from "./core/app.routing.module";
+import {HttpModule} from '@angular/http';
+import {FormsModule} from '@angular/forms';
 
 import {AppComponent} from './app.component';
 import {LoginComponent} from './login/login.component';
 import {UserComponent} from './user/user.component';
+
+import {ListService} from './services/list.service';
 
 @NgModule({
   declarations: [
@@ -19,8 +23,10 @@ import {UserComponent} from './user/user.component';
     BrowserAnimationsModule,
     CustomMaterialModule,
     AppRoutingModule,
+    HttpModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [ListService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

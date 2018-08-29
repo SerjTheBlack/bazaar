@@ -1,6 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 
+import { ListService } from '../services/list.service';
+import { UserModel } from '../models/user';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
