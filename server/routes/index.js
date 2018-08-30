@@ -35,17 +35,15 @@ module.exports = (passport) => {
 
   /* Загрузка данных текущего пользователя для домашней страницы */
   router.get('/home', isLoggedIn, (req,res) => {
-
-    res.render('home',{user: req.user, message: req.flash('message')});
+    res.render('home',{user: req.user, inventory: req.user.inventory.map((item)=>{return item.name+' '+item.price})
+      , message: req.flash('message')});
   });
 
   function isLoggedIn (req, res, next) {
 
-    // if user is authenticated in the session, carry on
     if (req.isAuthenticated())
       return next();
 
-    // if they aren't redirect them to the home page
     res.redirect('/');
   }
 
