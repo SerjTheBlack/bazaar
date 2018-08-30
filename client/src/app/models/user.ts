@@ -1,5 +1,4 @@
 export interface UserModel {
-  _id?: string;
   username: String;
   password: String;
   fio: String;

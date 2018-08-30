@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 
 import { ListService } from '../services/list.service';
+import {ApiService} from "../services/api.service";
 import { UserModel } from '../models/user';
 
 @Component({

@@ -1,6 +1,10 @@
 const express = require('express');
 const router = express.Router();
 
+const dbConfig = require('../db');
+const mongoose = require('mongoose');
+mongoose.connect(dbConfig.url);
+
 module.exports = (passport) => {
 
   /* Получение страницы авторизации. */
@@ -29,8 +33,14 @@ module.exports = (passport) => {
     failureFlash : true
   }));
 
+  /* Загрузка данных текущего пользователя для домашней страницы */
+  router.get('/home', (req,res) => {
+
+    res.render('home',{message: req.flash('message')});
+  });
+
   /* Выход из системы */
-  router.get('/signout', function(req, res) {
+  router.get('/signout', (req, res) => {
     req.logout();
     res.redirect('/');
   });

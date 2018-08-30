@@ -13,8 +13,8 @@ export class ApiService {
 
   }
 
-  getUser() {
-    return this.http.get(this.apiUrl + 'boards').toPromise();
+  checkUser(user: UserModel) {
+    return this.http.get(this.apiUrl + 'login', user).toPromise();
   }
 
   createUser(user: UserModel) {

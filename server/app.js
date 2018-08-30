@@ -102,7 +102,7 @@ passport.use('signup', new LocalStrategy({
       // поиск пользователя в Mongo с помощью предоставленного имени пользователя
       User.findOne({ 'username' : username}, (err, user) => {
         // В случае любых ошибок - возврат
-        if (err){
+        if (err) {
           console.log('Error in SignUp: '+err);
           return done(err);
         }
@@ -119,7 +119,7 @@ passport.use('signup', new LocalStrategy({
           newUser.username = username;
           newUser.password = createHash(password);
           newUser.fio = req.param('fio');
-          newUser.cash = 1000;
+          newUser.cash = 10000;
           newUser.inventory = [];
 
           // сохранения пользователя
