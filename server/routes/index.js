@@ -34,10 +34,20 @@ module.exports = (passport) => {
   }));
 
   /* Загрузка данных текущего пользователя для домашней страницы */
-  router.get('/home', (req,res) => {
+  router.get('/home', isLoggedIn, (req,res) => {
 
-    res.render('home',{message: req.flash('message')});
+    res.render('home',{user: req.user, message: req.flash('message')});
   });
+
+  function isLoggedIn (req, res, next) {
+
+    // if user is authenticated in the session, carry on
+    if (req.isAuthenticated())
+      return next();
+
+    // if they aren't redirect them to the home page
+    res.redirect('/');
+  }
 
   /* Выход из системы */
   router.get('/signout', (req, res) => {
